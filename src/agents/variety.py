@@ -1,14 +1,3 @@
-# from collections import Counter
-
-# class VarietyAgent:
-#     def check_variety(self, items):
-#         counts = Counter(items)
-#         repeated = {item: c for item, c in counts.items() if c > 1}
-#         if repeated:
-#             return f"⚠️ Repeated items found: {repeated}"
-#         return "✅ Menu looks diverse"
-
-
 import pandas as pd
 
 class MealPreferenceAgent:
