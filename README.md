@@ -1,18 +1,18 @@
 # Hostel Food Multi-Agent (OCR → Nutrition → Variety → Preference)
 
 ## Problem Statement
-Hostel students face repetitive menus, limited choices, and unbalanced nutrition. Menus are often posted as banners, making it hard to track and personalize choices. This project uses a multi-agent AI system to parse menu posters via OCR, analyze nutrition, detect variety, and generate personalized meal suggestions aligned to health goals and preferences.
+Repetitive menus, few choices, and poor nutrition are issues hostel students experience. Menus are frequently announced on banners, which is difficult to monitor and customize options. This project leverages a multi-agent AI framework for parsing menu posters through OCR, nutrition analysis, variety detection, and the creation of tailored meal recommendations based on health targets and preferences.
 
 ## Why Multi-Agent
-- Menu OCR Agent extracts and structures menu from images.
-- Nutrition Agent maps items to calories, protein, carbs, fat.
-- Variety Agent detects repetition and monotony.
-- Preference Agent personalizes recommendations per goal.
-Agents specialize and collaborate to produce a plan better than any single step.
+- Menu OCR Agent extracts and organizes menu from images.
+- Nutrition Agent maps food to calories, protein, carbs, fat.
+- Variety Agent identifies repetition and boredom.
+- Preference Agent tailors recommendations per target.
+Agents specialize and interact to create a plan greater than any individual step.
 
 ## Architecture
 Pipeline: OCR → Parse → Nutrition Map → Variety → Preference Selection → Totals.
-Coordinator: `Orchestrator` manages shared state and agent calls.
+Coordinator: `Orchestrator` coordinates shared state and agent invocation.
 
 ## Tools
 - OCR: pytesseract (offline)
@@ -20,11 +20,13 @@ Coordinator: `Orchestrator` manages shared state and agent calls.
 - Validation: pydantic models
 - UI: Streamlit
 - Data: `data/nutrition.csv` (Indian hostel foods)
+- Taken help from chatGPT and online for getting a better response
+- The dataset i'm using here is a copy of kaggle dataset named indian food nutrional values
 
 ## LLM Selection
-Ideal: GPT-4o or Claude 3.5 for richer reasoning and substitutions.
+Ideal: GPT-4o or Claude 3.5 for more elaborate reasoning and substitutions.
 Free options: Llama 3.1/Mistral via Hugging Face or local (ollama).
-This demo is offline and deterministic; LLMs can enhance suggestions in future.
+This demo is offline and deterministic; LLMs can improve suggestions in the future.
 
 ## Setup
 1) Install Tesseract (system)
@@ -32,9 +34,10 @@ This demo is offline and deterministic; LLMs can enhance suggestions in future.
 3) `streamlit run app/streamlit_app.py`
 
 ## Usage
-Upload a menu image or paste menu text. Select goal, preference, veg,vegan,non-veg or none. View parsed items, nutrition, variety, and a personalized plan with macro totals.
+Upload a menu picture or copy menu. Choose goal, preference, veg. Display parsed items, nutrition, variety, and a customized plan with macro totals.
 
 ## Repo Structure
+
 ""
 hostel-food-agents/
   README.md
@@ -57,4 +60,4 @@ hostel-food-agents/
 ""
 
 ## Limitations
-Nutrition values are approximate and limited to provided items. OCR quality depends on image clarity and language. Future work: LLM-powered substitutions, weekly planning, and recipe-level macros.
+Nutrition values are rough and restricted to items provided. Quality of OCR is based on image quality and language. Future work: LLM-driven substitutions, week planning, and recipe-level macros.
